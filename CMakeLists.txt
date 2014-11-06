@@ -8,6 +8,10 @@ CHECK_INCLUDE_FILES(stdint.h HAVE_STDINT_H)
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/include/config.h.in
                ${CMAKE_CURRENT_SOURCE_DIR}/include/config.h)
 
+IF(CMAKE_COMPILER_IS_GNUCC)
+  SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
+ENDIF()
+
 SET(LIB_BASE_HANGUL_SRCS
     src/basehangul.c)
 
