@@ -29,13 +29,13 @@ TEST(TestFromExample, Padding)
 
 TEST(TestFromExample, SpecialPadding)
 {
-    unsigned char data[4] = {49, 50, 51, 97};
+    unsigned char data[4] = {49, 50, 51, 100};
     
     uint16_t encoded[4] = {0};
     BaseHangulEncodeBlock(encoded, data, 4);
     
     ASSERT_EQ(encoded[0], 44733);
     ASSERT_EQ(encoded[1], 47673);
-    ASSERT_EQ(encoded[2], 44813);
+    ASSERT_EQ(encoded[2], 44816);
     ASSERT_EQ(encoded[3], 48718);
 }
