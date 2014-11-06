@@ -1,0 +1,4 @@
+basehangul
+==========
+
+Basehangul C implementation
