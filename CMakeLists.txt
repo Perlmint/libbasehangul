@@ -25,3 +25,31 @@ ADD_LIBRARY(basehangul
             ${LIB_BASE_HANGUL_SRCS}
             ${LIB_BASE_HANGUL_EXT_HDRS}
             ${LIB_BASE_HANGUL_INT_HDRS})
+
+IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ext/gtest/libgtest.a OR
+   EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ext/gtest/libgtest.dll)
+    SET(BASE_HANGUL_TESTS
+        test/test_example.cc)
+
+    ADD_EXECUTABLE(basehangul_test
+		   ${BASE_HANGUL_TESTS})
+
+    FIND_LIBRARY(GTEST_LIB gtest
+                 HINTS ${CMAKE_CURRENT_SOURCE_DIR}/ext/gtest)
+    FIND_LIBRARY(GTEST_MAIN_LIB gtest_main
+                 HINTS ${CMAKE_CURRENT_SOURCE_DIR}/ext/gtest)
+
+    TARGET_INCLUDE_DIRECTORIES(basehangul_test
+                               PRIVATE ext/gtest/include
+			       PRIVATE src)
+
+    TARGET_LINK_LIBRARIES(basehangul_test
+                          basehangul
+                          ${GTEST_LIB}
+			  ${GTEST_MAIN_LIB})
+
+    ENABLE_TESTING()
+
+    ADD_TEST(NAME unit_test
+             COMMAND basehangul_test)
+ENDIF()

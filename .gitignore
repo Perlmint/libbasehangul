@@ -6,3 +6,4 @@ install_manifest.txt
 build
 docs/out
 include/config.h
+ext
