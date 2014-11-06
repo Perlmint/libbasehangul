@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/omniavinco/libbasehangul.svg)](https://travis-ci.org/omniavinco/libbasehangul)
+
 basehangul
 ==========
 
