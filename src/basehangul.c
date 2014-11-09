@@ -111,7 +111,7 @@ const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned cha
         }
     }
     
-    return input;
+    return input + min(len, 5);
 }
 
 uint16_t CharcterToIndex(uint16_t ch)
