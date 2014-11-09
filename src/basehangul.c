@@ -39,9 +39,11 @@ void UCS2toUTF8(unsigned char *output, const uint16_t *input)
     }
 }
 
-void UTF8toUCS2(uint16_t *output, const unsigned char *input)
+void UTF8toUCS2(uint16_t *output, const unsigned char *input, uint8_t len)
 {
-    for (uint8_t i = 0; i < 4; ++i)
+    len = min(len, 4);
+    
+    for (uint8_t i = 0; i < len; ++i)
     {
         output[i] =
             ((input[i * 3 + 0] & 0x0F) << 12) |
