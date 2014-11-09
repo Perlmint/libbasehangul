@@ -42,3 +42,37 @@ TEST(BlockDecodeTestFromExample, SpecialPadding)
     ASSERT_EQ(decoded[2], 51);
     ASSERT_EQ(decoded[3], 100);
 }
+
+TEST(DecodeTestFromExample, BasicBlock)
+{
+    unsigned char encoded[] = {0xea, 0xba, 0xbd, 0xeb, 0xa8, 0xb9, 0xea, 0xbc, 0x8d, 0xeb, 0x85, 0x9c, 0};
+    unsigned char decoded[5] = {0};
+    BaseHangulDecode(decoded, encoded, 4, UTF8);
+    
+    ASSERT_EQ(decoded[0], 49);
+    ASSERT_EQ(decoded[1], 50);
+    ASSERT_EQ(decoded[2], 51);
+    ASSERT_EQ(decoded[3], 97);
+    ASSERT_EQ(decoded[4], 98);
+}
+
+TEST(DecodeTestFromExample, PaddingBy)
+{
+    unsigned char encoded[] = {0xea, 0xba, 0xbd, 0xed, 0x9d, 0x90, 0xed, 0x9d, 0x90, 0xed, 0x9d, 0x90, 0};
+    unsigned char decoded[1] = {0};
+    BaseHangulDecode(decoded, encoded, 4, UTF8);
+    
+    ASSERT_EQ(decoded[0], 49);
+}
+
+TEST(DecodeTestFromExample, SpecialPadding)
+{
+    unsigned char encoded[] = {0xea, 0xba, 0xbd, 0xeb, 0xa8, 0xb9, 0xea, 0xbc, 0x90, 0xeb, 0xb9, 0x8e, 0};
+    unsigned char decoded[4] = {0};
+    BaseHangulDecode(decoded, encoded, 4, UTF8);
+    
+    ASSERT_EQ(decoded[0], 49);
+    ASSERT_EQ(decoded[1], 50);
+    ASSERT_EQ(decoded[2], 51);
+    ASSERT_EQ(decoded[3], 100);
+}
