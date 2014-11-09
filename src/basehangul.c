@@ -23,7 +23,7 @@ size_t BaseHangulEncodeLength(size_t inputSize, Encoding encoding)
     return ((inputSize / 5 * 4) + ((inputSize % 5) == 0 ? 0 : 4)) * char_size;
 }
 
-void UCS2toUTF8(unsigned char *output, uint16_t *input)
+void UCS2toUTF8(unsigned char *output, const uint16_t *input)
 {
     for (uint8_t i = 0; i < 4; ++i)
     {
