@@ -52,6 +52,7 @@ size_t BaseHangulEncode(unsigned char *encoded, const unsigned char *input, size
  */
 size_t BaseHangulDecode(unsigned char *decoded, const unsigned char *encoded, size_t len, Encoding encoding);
     
+const uint16_t *BaseHangulDecodeBlock(unsigned char *decoded, const uint16_t *encoded, size_t len);
 const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned char *input, size_t len);
     
 #ifdef __cplusplus

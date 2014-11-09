@@ -33,7 +33,8 @@ ADD_LIBRARY(basehangul
 IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ext/gtest/libgtest.a OR
    EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ext/gtest/libgtest.dll)
     SET(BASE_HANGUL_TESTS
-        test/test_example.cc)
+        test/test_example_encode.cc
+        test/test_example_decode.cc)
 
     ADD_EXECUTABLE(basehangul_test
 		   ${BASE_HANGUL_TESTS})

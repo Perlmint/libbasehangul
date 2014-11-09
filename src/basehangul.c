@@ -8,6 +8,12 @@
 
 #include "basehangul.h"
 #include "digit_set.h"
+#include <assert.h>
+
+static inline int min(int a, int b)
+{
+    return a < b ? a : b;
+}
 
 size_t BaseHangulEncodeLength(size_t inputSize, Encoding encoding)
 {
@@ -30,6 +36,17 @@ void UCS2toUTF8(unsigned char *output, const uint16_t *input)
         output[i * 3 + 0] = 0xE0 | ((input[i] & 0xF000) >> 12);
         output[i * 3 + 1] = 0x80 | ((input[i] & 0x0FC0) >> 6);
         output[i * 3 + 2] = 0x80 | ((input[i] & 0x003F));
+    }
+}
+
+void UTF8toUCS2(uint16_t *output, const unsigned char *input)
+{
+    for (uint8_t i = 0; i < 4; ++i)
+    {
+        output[i] =
+            ((input[i * 3 + 0] & 0x0F) << 12) |
+            ((input[i * 3 + 1] & 0x3F) << 6) |
+            (input[i * 3 + 2] & 0x3F);
     }
 }
 
@@ -93,4 +110,63 @@ const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned cha
     }
     
     return input;
+}
+
+uint16_t CharcterToIndex(uint16_t ch)
+{
+    for (size_t i = 0, e = sizeof(digit_set) / sizeof(*digit_set); i < e; ++i) {
+        if (digit_set[i] == ch)
+        {
+            if (i == 1027)
+            {
+                return 0;
+            }
+            else if (i > 1023)
+            {
+                return (i - 1024) << 8;
+            }
+            
+            return i;
+        }
+    }
+    
+    assert(!"Invalid character for basehangul");
+}
+
+const uint16_t *BaseHangulDecodeBlock(unsigned char *decoded, const uint16_t *encoded, size_t len)
+{
+    if (len == 0)
+    {
+        return encoded;
+    }
+    
+    uint16_t block[4] = {0};
+    for (int i = 0, valid_block_size = min(len, 4); i < valid_block_size; ++i)
+    {
+        block[i] = CharcterToIndex(*encoded);
+        ++encoded;
+    }
+    
+    decoded[0] = block[0] >> 2;
+    decoded[1] = ((block[0] & 0x0003) << 6) | (block[1] >> 4);
+    if (len < 1 || block[1] == 0)
+    {
+        return encoded;
+    }
+    
+    decoded[2] = ((block[1] & 0x000F) << 4) | (block[2] >> 6);
+    if (len < 2 || block[2] == 0)
+    {
+        return encoded;
+    }
+    
+    decoded[3] = ((block[2] & 0x003F) << 2) | (block[3] >> 8);
+    if (len < 3 || block[3] == 0)
+    {
+        return encoded;
+    }
+    
+    decoded[4] = (block[3] & 0x00FF);
+    
+    return encoded;
 }
