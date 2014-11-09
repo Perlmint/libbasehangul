@@ -75,10 +75,10 @@ const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned cha
     unsigned char block[5] = {0};
     memcpy(block, input, len);
     
-    encoded[0] = digit_set[(input[0] << 2) | (block[1] >> 6)];
-    encoded[1] = digit_set[((input[1] & 0x3F) << 4) | (block[2] >> 4)];
-    encoded[2] = digit_set[((input[2] & 0x0F) << 6) | (block[3] >> 2)];
-    encoded[3] = digit_set[((input[3] & 0x03) << 8) | (block[4])];
+    encoded[0] = digit_set[(block[0] << 2) | (block[1] >> 6)];
+    encoded[1] = digit_set[((block[1] & 0x3F) << 4) | (block[2] >> 4)];
+    encoded[2] = digit_set[((block[2] & 0x0F) << 6) | (block[3] >> 2)];
+    encoded[3] = digit_set[((block[3] & 0x03) << 8) | (block[4])];
     
     if (len == 4)
     {
