@@ -51,8 +51,25 @@ size_t BaseHangulEncode(unsigned char *encoded, const unsigned char *input, size
  * \return                Length of \ref decoded
  */
 size_t BaseHangulDecode(unsigned char *decoded, const unsigned char *encoded, size_t len, Encoding encoding);
-    
+
+/**
+ * \brief Decode basehangul encoded data block(max 5byte)
+ *
+ * \param[out] decoded decoded data of \ref encoded
+ * \param[in]  encoded encoded data (UCS2)
+ * \param[in]  len     encoded block size(2byte)
+ * \return             pointer of encoded data
+ */
 const uint16_t *BaseHangulDecodeBlock(unsigned char *decoded, const uint16_t *encoded, size_t len);
+    
+/**
+ * \brief Encode data block(max 4byte)
+ *
+ * \param[out] encoded Basehangul encoded data
+ * \param[in]  input   raw data to encode
+ * \param[in]  len     Size of \ref input
+ * \return
+ */
 const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned char *input, size_t len);
     
 #ifdef __cplusplus
