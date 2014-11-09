@@ -80,8 +80,35 @@ size_t BaseHangulEncode(unsigned char *encoded, const unsigned char *input, size
 
 size_t BaseHangulDecode(unsigned char *decoded, const unsigned char *encoded, size_t len, Encoding encoding)
 {
-    // Not implemented yet
-    return 0;
+    uint16_t inputbuffer[4] = {0};
+    
+    size_t written = 0;
+    for (size_t processed = 0, end = len; processed < end;)
+    {
+        memset(inputbuffer, 0, sizeof(inputbuffer));
+        
+        uint8_t blockSize = 0;
+        switch (encoding) {
+            case UCS2:
+                blockSize = min(len - processed, 5);
+                memcpy(inputbuffer, encoded, blockSize * 2);
+                encoded += blockSize;
+                written += blockSize / 5 * 4;
+                break;
+            case UTF8:
+                blockSize = min(len - processed, 15);
+                UTF8toUCS2(inputbuffer, encoded, blockSize);
+                encoded += blockSize;
+                written += blockSize / 15 * 4;
+                break;
+        }
+        
+        BaseHangulDecodeBlock(decoded, inputbuffer, len - processed);
+        
+        processed += blockSize;
+    }
+    
+    return written;
 }
 
 const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned char *input, size_t len)
