@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "basehangul.h"
 
-TEST(BlockTestFromExample, BasicBlock)
+TEST(BlockEncodeTestFromExample, BasicBlock)
 {
     unsigned char data[5] = {49, 50, 51, 97, 98};
     
@@ -14,7 +14,7 @@ TEST(BlockTestFromExample, BasicBlock)
     ASSERT_EQ(encoded[3], 45404);
 }
 
-TEST(BlockTestFromExample, PaddingBy)
+TEST(BlockEncodeTestFromExample, PaddingBy)
 {
     unsigned char data[1] = {49};
     
@@ -27,7 +27,7 @@ TEST(BlockTestFromExample, PaddingBy)
     ASSERT_EQ(encoded[3], 55120);
 }
 
-TEST(BlockTestFromExample, SpecialPadding)
+TEST(BlockEncodeTestFromExample, SpecialPadding)
 {
     unsigned char data[4] = {49, 50, 51, 100};
     
@@ -40,7 +40,7 @@ TEST(BlockTestFromExample, SpecialPadding)
     ASSERT_EQ(encoded[3], 48718);
 }
 
-TEST(TestFromExample, BasicBlock)
+TEST(EncodeTestFromExample, BasicBlock)
 {
     unsigned char data[5] = {49, 50, 51, 97, 98};
     
@@ -64,7 +64,7 @@ TEST(TestFromExample, BasicBlock)
     ASSERT_EQ(correct[12], encoded[12]);
 }
 
-TEST(TestFromExample, PaddingBy)
+TEST(EncodeTestFromExample, PaddingBy)
 {
     unsigned char data[1] = {49};
     
@@ -88,7 +88,7 @@ TEST(TestFromExample, PaddingBy)
     ASSERT_EQ(correct[12], encoded[12]);
 }
 
-TEST(TestFromExample, SpecialPadding)
+TEST(EncodeTestFromExample, SpecialPadding)
 {
     unsigned char data[4] = {49, 50, 51, 100};
     
