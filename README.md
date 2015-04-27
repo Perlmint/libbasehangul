@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/omniavinco/libbasehangul.svg)](https://travis-ci.org/omniavinco/libbasehangul)
+[![Build Status](https://travis-ci.org/Perlmint/libbasehangul.svg)](https://travis-ci.org/Perlmint/libbasehangul)
 
 basehangul
 ==========
