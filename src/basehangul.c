@@ -32,8 +32,8 @@ size_t BaseHangulEncodeLength(size_t inputSize, Encoding encoding)
 /**
  * Decode UCS2 and Encode into UTF-8
  *
- * \param[out] ouput UTF-8 string
- * \param[in]  input UCS2 string
+ * \param[out] output UTF-8 string
+ * \param[in]  input  UCS2 string
  **/
 void UCS2toUTF8(unsigned char *output, const uint16_t *input)
 {
