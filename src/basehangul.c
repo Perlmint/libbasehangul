@@ -29,6 +29,12 @@ size_t BaseHangulEncodeLength(size_t inputSize, Encoding encoding)
     return ((inputSize / 5 * 4) + ((inputSize % 5) == 0 ? 0 : 4)) * char_size;
 }
 
+/**
+ * Decode UCS2 and Encode into UTF-8
+ *
+ * \param[out] ouput UTF-8 string
+ * \param[in]  input UCS2 string
+ **/
 void UCS2toUTF8(unsigned char *output, const uint16_t *input)
 {
     for (uint8_t i = 0; i < 4; ++i)
@@ -39,6 +45,13 @@ void UCS2toUTF8(unsigned char *output, const uint16_t *input)
     }
 }
 
+/**
+ * Decode UTF-8 and encode in UCS2(UTF-16)
+ *
+ * \param[out] output UCS2(UTF-16) string
+ * \param[in]  input  UTF-8 string
+ * \param[in]  len    UTF-8 string length
+ **/
 void UTF8toUCS2(uint16_t *output, const unsigned char *input, uint8_t len)
 {
     len = min(len, 4);
@@ -141,6 +154,12 @@ const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned cha
     return input + min(len, 5);
 }
 
+/**
+ * Get character index from basehangul set
+ *
+ * \param[in] ch  Single character
+ * \returns       Index in basehangul set
+ */
 uint16_t CharcterToIndex(uint16_t ch)
 {
     for (size_t i = 0, e = sizeof(digit_set) / sizeof(*digit_set); i < e; ++i) {
