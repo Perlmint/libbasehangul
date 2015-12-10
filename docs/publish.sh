@@ -16,6 +16,7 @@ prepare() {
 publish() {
     cd docs
     doxygen doxygen.conf
+    touch out/html/.nojekyll
     git remote remove origin
     git remote add origin git@github.com:Perlmint/libbasehangul.git
     git fetch origin
