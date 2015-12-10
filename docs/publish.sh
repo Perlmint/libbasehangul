@@ -13,12 +13,12 @@ prepare() {
 }
 
 publish() {
-    pushd docs
+    cd docs
     doxygen doxygen.conf
     git remote remove origin
     git remote add origin git@github.com:Perlmint/libbasehangul.git
     git fetch origin
     ghp-import out/html
     git push origin gh-pages
-    popd
+    cd ..
 }
