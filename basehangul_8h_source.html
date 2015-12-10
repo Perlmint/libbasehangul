@@ -54,6 +54,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
+      <li><a href="modules.html"><span>모듈</span></a></li>
       <li class="current"><a href="files.html"><span>파일들</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -104,39 +105,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
 <a name="l00004"></a>00004 <span class="comment">//</span>
 <a name="l00005"></a>00005 <span class="comment">//  Created by Gyusun Yeom on 2014. 11. 6..</span>
 <a name="l00006"></a>00006 <span class="comment">//</span>
-<a name="l00007"></a>00007 <span class="comment">//</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#ifndef __BASE_HANGUL_H_</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define __BASE_HANGUL_H_</span>
-<a name="l00011"></a>00011 <span class="preprocessor"></span>
-<a name="l00012"></a>00012 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
-<a name="l00014"></a>00014 <span class="preprocessor">#endif</span>
-<a name="l00015"></a>00015 <span class="preprocessor"></span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="type_8h.html">type.h</a>&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;string.h&gt;</span>
-<a name="l00018"></a>00018 
-<a name="l00019"></a><a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">00019</a> <span class="keyword">typedef</span> <span class="keyword">enum</span>
-<a name="l00020"></a>00020 {
-<a name="l00021"></a><a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaa129c5e7cd7296a953eb4c3a8f68614f3">00021</a>     <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaa129c5e7cd7296a953eb4c3a8f68614f3">UCS2</a>,
-<a name="l00022"></a><a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaac4aa8bf4aaf220c87545078d3c43baaa">00022</a>     <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaac4aa8bf4aaf220c87545078d3c43baaa">UTF8</a>
-<a name="l00023"></a>00023 } <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a>;
-<a name="l00024"></a>00024     
-<a name="l00031"></a>00031 <span class="keywordtype">size_t</span> <a class="code" href="basehangul_8h.html#ac1f0a5dbc637f4a10866079d0d34391a" title="Calculate size of data when encoded.">BaseHangulEncodeLength</a>(<span class="keywordtype">size_t</span> inputSize, <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding);
-<a name="l00032"></a>00032 
-<a name="l00042"></a>00042 <span class="keywordtype">size_t</span> <a class="code" href="basehangul_8h.html#aeff049e795be17e5494186a4d6fb65bd" title="Encode data using basehangul method.">BaseHangulEncode</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *encoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input, <span class="keywordtype">size_t</span> len, <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding);
-<a name="l00043"></a>00043 
-<a name="l00053"></a>00053 <span class="keywordtype">size_t</span> <a class="code" href="basehangul_8h.html#a73cc2223ee660e743af5e43240a9b60c" title="Decode basehangul encoded data.">BaseHangulDecode</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *decoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *encoded, <span class="keywordtype">size_t</span> len, <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding);
-<a name="l00054"></a>00054 
-<a name="l00063"></a>00063 <span class="keyword">const</span> uint16_t *<a class="code" href="basehangul_8h.html#ac5921084321c65e3a83b40b067991e38" title="Decode basehangul encoded data block(max 5byte)">BaseHangulDecodeBlock</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *decoded, <span class="keyword">const</span> uint16_t *encoded, <span class="keywordtype">size_t</span> len);
-<a name="l00064"></a>00064     
-<a name="l00073"></a>00073 <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="basehangul_8h.html#a1bdc59fb3ed058349580ddc57a648479" title="Encode data block(max 4byte)">BaseHangulEncodeBlock</a>(uint16_t *encoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input, <span class="keywordtype">size_t</span> len);
-<a name="l00074"></a>00074     
-<a name="l00075"></a>00075 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00076"></a>00076 <span class="preprocessor"></span>}
-<a name="l00077"></a>00077 <span class="preprocessor">#endif</span>
-<a name="l00078"></a>00078 <span class="preprocessor"></span>
-<a name="l00079"></a>00079 <span class="preprocessor">#endif //__BASE_HANGUL_H_</span>
+<a name="l00007"></a>00007 <span class="comment">// \defgroup encoding</span>
+<a name="l00008"></a>00008 <span class="comment">// \defgroup decoding</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef __BASE_HANGUL_H_</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define __BASE_HANGUL_H_</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
+<a name="l00015"></a>00015 <span class="preprocessor">#endif</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="type_8h.html">type.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00019"></a>00019 
+<a name="l00021"></a><a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">00021</a> <span class="keyword">typedef</span> <span class="keyword">enum</span>
+<a name="l00022"></a>00022 {
+<a name="l00024"></a><a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaa129c5e7cd7296a953eb4c3a8f68614f3">00024</a>     <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaa129c5e7cd7296a953eb4c3a8f68614f3" title="UCS2 or UTF-16.">UCS2</a>,
+<a name="l00026"></a><a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaac4aa8bf4aaf220c87545078d3c43baaa">00026</a>     <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faaac4aa8bf4aaf220c87545078d3c43baaa" title="UTF-8.">UTF8</a>
+<a name="l00027"></a>00027 } <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa" title="Output encoding method.">Encoding</a>;
+<a name="l00028"></a>00028 
+<a name="l00031"></a>00031 
+<a name="l00039"></a>00039 <span class="keywordtype">size_t</span> <a class="code" href="group__encoding.html#gac1f0a5dbc637f4a10866079d0d34391a" title="Calculate size of data when encoded.">BaseHangulEncodeLength</a>(<span class="keywordtype">size_t</span> inputSize, <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa" title="Output encoding method.">Encoding</a> encoding);
+<a name="l00040"></a>00040 
+<a name="l00050"></a>00050 <span class="keywordtype">size_t</span> <a class="code" href="group__encoding.html#gaeff049e795be17e5494186a4d6fb65bd" title="Encode data using basehangul method.">BaseHangulEncode</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *encoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input, <span class="keywordtype">size_t</span> len, <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa" title="Output encoding method.">Encoding</a> encoding);
+<a name="l00051"></a>00051 
+<a name="l00055"></a>00055 
+<a name="l00065"></a>00065 <span class="keywordtype">size_t</span> <a class="code" href="basehangul_8h.html#a73cc2223ee660e743af5e43240a9b60c" title="Decode basehangul encoded data.">BaseHangulDecode</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *decoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *encoded, <span class="keywordtype">size_t</span> len, <a class="code" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa" title="Output encoding method.">Encoding</a> encoding);
+<a name="l00066"></a>00066 
+<a name="l00070"></a>00070 
+<a name="l00079"></a>00079 <span class="keyword">const</span> uint16_t *<a class="code" href="basehangul_8h.html#ac5921084321c65e3a83b40b067991e38" title="Decode basehangul encoded data block(max 5byte)">BaseHangulDecodeBlock</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *decoded, <span class="keyword">const</span> uint16_t *encoded, <span class="keywordtype">size_t</span> len);
+<a name="l00080"></a>00080 
+<a name="l00084"></a>00084 
+<a name="l00093"></a>00093 <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="basehangul_8h.html#a1bdc59fb3ed058349580ddc57a648479" title="Encode data block(max 4byte)">BaseHangulEncodeBlock</a>(uint16_t *encoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input, <span class="keywordtype">size_t</span> len);
+<a name="l00094"></a>00094 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00098"></a>00098 <span class="preprocessor"></span>}
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="keyword">template</span>&lt;Encoding encoding&gt;
+<a name="l00101"></a>00101 <span class="keyword">class </span>BaseHangul {
+<a name="l00102"></a>00102 <span class="keyword">public</span>:
+<a name="l00103"></a>00103     <span class="keyword">static</span> <span class="keywordtype">size_t</span> Encode(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *encoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input, <span class="keywordtype">size_t</span> len);
+<a name="l00104"></a>00104     <span class="keyword">static</span> <span class="keywordtype">size_t</span> Decode(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *decoded, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *encoded, <span class="keywordtype">size_t</span> len);
+<a name="l00105"></a>00105 };
+<a name="l00106"></a>00106 <span class="preprocessor">#endif</span>
+<a name="l00107"></a>00107 <span class="preprocessor"></span>
+<a name="l00108"></a>00108 <span class="preprocessor">#endif //__BASE_HANGUL_H_</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span>
 </pre></div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -157,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
     <ul>
       <li class="navelem"><a class="el" href="basehangul_8h.html">basehangul.h</a>      </li>
 
-    <li class="footer">생성시간 : 목 12월 10 2015 17:34:37, 프로젝트명 : libbasehangul, 생성자 : 
+    <li class="footer">생성시간 : 목 12월 10 2015 18:13:15, 프로젝트명 : libbasehangul, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

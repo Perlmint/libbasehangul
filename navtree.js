@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "libbasehangul", "index.html", [
+    [ "모듈", "modules.html", "modules" ],
     [ "파일들", null, [
       [ "파일 목록", "files.html", "files" ],
       [ "파일 멤버", "globals.html", [

@@ -54,6 +54,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
+      <li><a href="modules.html"><span>모듈</span></a></li>
       <li class="current"><a href="files.html"><span>파일들</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -106,12 +107,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
 </div><table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 함수</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="basehangul_8c.html#ac1f0a5dbc637f4a10866079d0d34391a">BaseHangulEncodeLength</a> (size_t inputSize, <a class="el" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate size of data when encoded.  <a href="#ac1f0a5dbc637f4a10866079d0d34391a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__encoding.html#gac1f0a5dbc637f4a10866079d0d34391a">BaseHangulEncodeLength</a> (size_t inputSize, <a class="el" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate size of data when encoded.  <a href="group__encoding.html#gac1f0a5dbc637f4a10866079d0d34391a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="basehangul_8c.html#a23c8bc02e5cd4090b47e00d124f14633">UCS2toUTF8</a> (unsigned char *output, const uint16_t *input)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="basehangul_8c.html#a6cd0329c282325aa1635042137a5e73b">UTF8toUCS2</a> (uint16_t *output, const unsigned char *input, uint8_t len)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="basehangul_8c.html#aeff049e795be17e5494186a4d6fb65bd">BaseHangulEncode</a> (unsigned char *encoded, const unsigned char *input, size_t len, <a class="el" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode data using basehangul method.  <a href="#aeff049e795be17e5494186a4d6fb65bd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__encoding.html#gaeff049e795be17e5494186a4d6fb65bd">BaseHangulEncode</a> (unsigned char *encoded, const unsigned char *input, size_t len, <a class="el" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode data using basehangul method.  <a href="group__encoding.html#gaeff049e795be17e5494186a4d6fb65bd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="basehangul_8c.html#a73cc2223ee660e743af5e43240a9b60c">BaseHangulDecode</a> (unsigned char *decoded, const unsigned char *encoded, size_t len, <a class="el" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a> encoding)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode basehangul encoded data.  <a href="#a73cc2223ee660e743af5e43240a9b60c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="basehangul_8c.html#a1bdc59fb3ed058349580ddc57a648479">BaseHangulEncodeBlock</a> (uint16_t *encoded, const unsigned char *input, size_t len)</td></tr>
@@ -163,12 +164,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">decoded</td><td></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">encoded</td><td>Basehangul encoded data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of encoded </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>Encoding of encoded </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of <code>encoded</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>Encoding of <code>encoded</code> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>반환값:</b></dt><dd>Length of decoded </dd></dl>
+<dl class="return"><dt><b>반환값:</b></dt><dd>Length of <code>decoded</code> </dd></dl>
 
 </div>
 </div>
@@ -206,64 +207,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
 <p>Decode basehangul encoded data block(max 5byte) </p>
 <dl class="params"><dt><b>매개변수:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">decoded</td><td>decoded data of encoded </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">decoded</td><td>decoded data of <code>encoded</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">encoded</td><td>encoded data (UCS2) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>encoded block size(2byte) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="return"><dt><b>반환값:</b></dt><dd>pointer of encoded data </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aeff049e795be17e5494186a4d6fb65bd"></a><!-- doxytag: member="basehangul.c::BaseHangulEncode" ref="aeff049e795be17e5494186a4d6fb65bd" args="(unsigned char *encoded, const unsigned char *input, size_t len, Encoding encoding)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="basehangul_8c.html#aeff049e795be17e5494186a4d6fb65bd">BaseHangulEncode</a> </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>encoded</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned char *&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>len</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a>&#160;</td>
-          <td class="paramname"><em>encoding</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Encode data using basehangul method. </p>
-<dl class="params"><dt><b>매개변수:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">encoded</td><td>Array for encoded data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>Data to encode </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of input </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>Character Encoding Type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>반환값:</b></dt><dd>Length of encoded </dd></dl>
 
 </div>
 </div>
@@ -303,47 +253,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">encoded</td><td>Basehangul encoded data </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>raw data to encode </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Size of input </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Size of <code>input</code> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="return"><dt><b>반환값:</b></dt><dd></dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ac1f0a5dbc637f4a10866079d0d34391a"></a><!-- doxytag: member="basehangul.c::BaseHangulEncodeLength" ref="ac1f0a5dbc637f4a10866079d0d34391a" args="(size_t inputSize, Encoding encoding)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="basehangul_8c.html#ac1f0a5dbc637f4a10866079d0d34391a">BaseHangulEncodeLength</a> </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>inputSize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="basehangul_8h.html#afb0564821f132bfe74508af8349a0faa">Encoding</a>&#160;</td>
-          <td class="paramname"><em>encoding</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Calculate size of data when encoded. </p>
-<dl class="params"><dt><b>매개변수:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">inputSize</td><td>Size of data to encode </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>반환값:</b></dt><dd>Size of encoded data </dd></dl>
 
 </div>
 </div>
@@ -361,6 +275,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       </table>
 </div>
 <div class="memdoc">
+<p>Get character index from basehangul set</p>
+<dl class="params"><dt><b>매개변수:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ch</td><td>Single character </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>반환값:</b></dt><dd>Index in basehangul set </dd></dl>
 
 </div>
 </div>
@@ -388,6 +310,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       </table>
 </div>
 <div class="memdoc">
+<p>Decode UCS2 and Encode into UTF-8</p>
+<dl class="params"><dt><b>매개변수:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">ouput</td><td>UTF-8 string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>UCS2 string </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -421,6 +351,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
       </table>
 </div>
 <div class="memdoc">
+<p>Decode UTF-8 and encode in UCS2(UTF-16)</p>
+<dl class="params"><dt><b>매개변수:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>UCS2(UTF-16) string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>UTF-8 string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>UTF-8 string length </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -444,7 +383,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
     <ul>
       <li class="navelem"><a class="el" href="basehangul_8c.html">basehangul.c</a>      </li>
 
-    <li class="footer">생성시간 : 목 12월 10 2015 17:34:37, 프로젝트명 : libbasehangul, 생성자 : 
+    <li class="footer">생성시간 : 목 12월 10 2015 18:13:15, 프로젝트명 : libbasehangul, 생성자 : 
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>
