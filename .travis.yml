@@ -1,8 +1,23 @@
 language: cpp
-install:
-- sudo apt-get install cmake libgtest-dev
+
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - kalakris-cmake
+    packages:
+      - libgtest-dev
+      - cmake
+      - doxygen
+      - python-virtualenv
+
+before_install:
+  - if [ $TRAVIS_BRANCH = "master" ]; then source docs/publish.sh; prepare; fi
+
 script:
-- mkdir build
-- cd build
-- cmake ..
-- make
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - if [ $TRAVIS_BRANCH = "master" ]; then publish; fi
