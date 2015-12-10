@@ -20,4 +20,5 @@ script:
   - cd build
   - cmake ..
   - make
+  - cd ..
   - if [ $TRAVIS_BRANCH = "master" ]; then publish; fi

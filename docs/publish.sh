@@ -3,7 +3,8 @@ prepare() {
     git config --global user.name "travis-ci"
     git config push.default simple
     mkdir -p .travis
-    openssl aes-256-cbc -K $encrypted_4b7a7054081f_key -iv $encrypted_4b7a7054081f_iv -in id_rsa.enc -out id_rsa -d
+    openssl aes-256-cbc -K $encrypted_91af6aa29953_key -iv $encrypted_91af6aa29953_iv -in id_rsa.enc -out id_rsa -d
+    mv id_rsa .travis/id_rsa
     chmod 600 .travis/id_rsa
     eval `ssh-agent -s`
     ssh-add .travis/id_rsa
