@@ -92,7 +92,7 @@ const uint16_t *BaseHangulDecodeBlock(unsigned char *decoded, const uint16_t *en
  */
 const unsigned char *BaseHangulEncodeBlock(uint16_t *encoded, const unsigned char *input, size_t len);
 
-/// #}
+/// @}
 
 #ifdef __cplusplus
 }
